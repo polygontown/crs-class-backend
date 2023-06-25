@@ -24,10 +24,12 @@ app.use(express.urlencoded({
     limit: "50mb",
     extended: true
 }));
-//app.use(morgan("tiny"));
-app.use(cors());
+app.use(morgan("tiny"));
+app.use(cors({
+    exposedHeaders: "Etag"
+}));
 app.disable("x-powered-by");
-//app.disable('etag');
+// app.disable('etag');
 app.get("/",(req, res) => {
     res.status(200).json("GET root");
 });

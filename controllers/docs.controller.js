@@ -28,7 +28,7 @@ export async function getDocs(req, res) {
       .then((doc) => {
         if (!doc)
           return res.status(404).send({ error: "Couldn't find document" });
-        return res.status(201).send(doc);
+        return res.status(200).send(doc);
       })
       .catch((error) => {
         console.log(error);
